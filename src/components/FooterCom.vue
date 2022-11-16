@@ -54,6 +54,14 @@ export default {
   margin-left: 10px;
   display: flex;
   align-items: center;
+
+  .custom-control-input{
+    margin: 0;
+  }
+
+  .custom-control-label{
+    margin-bottom: 0;
+  }
 }
 
 #cbFull {
