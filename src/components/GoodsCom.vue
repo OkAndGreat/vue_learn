@@ -14,17 +14,20 @@
     <!-- 右侧信息区域 -->
     <div class="goods-info">
       <!-- 商品标题 -->
-      <h6 class="goods-title">{{title}}</h6>
+      <h6 class="goods-title">{{ title }}</h6>
       <div class="goods-info-bottom">
         <!-- 商品价格 -->
-        <span class="goods-price">${{price}}</span>
+        <span class="goods-price">${{ price }}</span>
         <!-- 商品的数量 -->
+        <Counter :count="count" :id="id"></Counter>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Counter from '@/components/CounterCom.vue'
+
 export default {
   props: {
     id: {
@@ -57,11 +60,14 @@ export default {
       default: 1
     }
   },
-  methods:{
-    stateChange(e){
+  methods: {
+    stateChange(e) {
       const newState = e.target.checked
-      this.$emit('state-change', { id: this.id, value: newState })
+      this.$emit('state-change', {id: this.id, value: newState})
     }
+  },
+  components: {
+    Counter
   }
 }
 </script>

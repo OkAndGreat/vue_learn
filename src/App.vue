@@ -12,7 +12,8 @@
         :count="item.goods_count"
         @state-change="getNewState"
     ></Goods>
-    <Footer :isfull="fullState" @full-change="getFullState"></Footer>
+    <Footer :isfull="fullState" :total-count="totalCount" :total-price="totalPrice"
+            @full-change="getFullState"></Footer>
   </div>
 </template>
 
@@ -28,10 +29,26 @@ export default {
       list: []
     }
   },
-  computed:{
+  computed: {
     fullState() {
       return this.list.every(item => item.goods_state)
     },
+    totalCount() {
+      let count = 0
+      this.list.forEach(item => {
+        count += item.goods_count
+      })
+      return count
+    },
+    totalPrice() {
+      let price = 0
+      var list = this.list.filter(item => item.goods_state)
+      list.forEach(item => {
+        let singlePrice = item.goods_count * item.goods_price
+        price += singlePrice
+      })
+      return price
+    }
   },
   methods: {
     // 封装请求列表数据的方法
@@ -65,6 +82,17 @@ export default {
   },
   created() {
     this.initCartList()
+
+    this.$bus.$on('countChange', val => {
+      this.list.some(item => {
+        console.log(item.id + "  " + item.value)
+        if (item.id === val.id) {
+          item.goods_count = val.value
+          item.goods_state = item.goods_count !== 0;
+          return true
+        }
+      })
+    })
   }
 }
 </script>
