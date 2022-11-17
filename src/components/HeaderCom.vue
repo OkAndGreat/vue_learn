@@ -7,7 +7,8 @@ export default {
   props: {
     title: {
       default: '',
-      type: String
+      type: String,
+      required:true
     }
   },
   name: "HeaderCom"

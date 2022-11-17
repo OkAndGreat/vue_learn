@@ -1,10 +1,10 @@
 <template>
-  <h4>App 组件</h4>
+  <h4 class="text-center">商品管理</h4>
 </template>
 
 <script>
 export default {
-
+  name: 'MyGoods',
 }
 </script>
 
