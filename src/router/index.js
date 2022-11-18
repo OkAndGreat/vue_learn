@@ -24,7 +24,9 @@ const routes = [
             { path: 'rights', component: Rights },
             { path: 'goods', component: Goods },
             { path: 'orders', component: Orders },
-            { path: 'settings', component: Settings }
+            { path: 'settings', component: Settings },
+            // 用户详情页的路由规则
+            { path: 'userinfo/:id', component: UserDetail, props: true }
         ]
     }
 ]
