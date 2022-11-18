@@ -2,11 +2,11 @@
   <div class="layout-aside-container">
     <!-- 左侧边栏列表 -->
     <ul class="user-select-none menu">
-      <li class="menu-item">用户管理</li>
-      <li class="menu-item">权限管理</li>
-      <li class="menu-item">商品管理</li>
-      <li class="menu-item">订单管理</li>
-      <li class="menu-item">系统设置</li>
+      <li class="menu-item" @click="toUser">用户管理</li>
+      <li class="menu-item" @click="toRights">权限管理</li>
+      <li class="menu-item" @click="toGoods">商品管理</li>
+      <li class="menu-item" @click="toOrder">订单管理</li>
+      <li class="menu-item" @click="toSetting">系统设置</li>
     </ul>
   </div>
 </template>
@@ -14,6 +14,23 @@
 <script>
 export default {
   name: 'MyAside',
+  methods: {
+    toUser() {
+      this.$router.replace('/home/users')
+    },
+    toRights() {
+      this.$router.replace('/home/rights')
+    },
+    toGoods() {
+      this.$router.replace('/home/goods')
+    },
+    toOrder() {
+      this.$router.replace('/home/orders')
+    },
+    toSetting() {
+      this.$router.replace('/home/settings')
+    }
+  }
 }
 </script>
 
@@ -27,20 +44,25 @@ export default {
 .menu {
   list-style-type: none;
   padding: 0;
+
   .menu-item {
     line-height: 50px;
+    text-align: center;
     font-weight: bold;
     font-size: 14px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
     &:hover {
       background-color: #efefef;
       cursor: pointer;
     }
+
     a {
       display: block;
       color: black;
       padding-left: 30px;
+
       &:hover {
         text-decoration: none;
       }
