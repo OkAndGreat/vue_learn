@@ -48,14 +48,18 @@ export default {}
 
 <style lang="less" scoped>
 .user-container {
-  van-nav-bar {
-    background: #007bff;
+  .van-nav-bar {
+    background-color: #007bff;
+  }
+
+  /deep/ .van-nav-bar__title {
+    color: white;
   }
 
   .user-card {
     background-color: #007bff;
     color: white;
-    padding-top: 20px;
+    padding-top: 46px;
 
     .van-cell {
       background: #007bff;

@@ -7,10 +7,10 @@
       <div @click="onBottomUserClicked()" ref="user">我的</div>
     </div>
     <!-- 使用 vant Tabbar 区域 -->
-<!--    <van-tabbar route>-->
-<!--      <van-tabbar-item icon="home-o" to="/">首页</van-tabbar-item>-->
-<!--      <van-tabbar-item icon="user-o" to="/user">我的</van-tabbar-item>-->
-<!--    </van-tabbar>-->
+    <!--    <van-tabbar route>-->
+    <!--      <van-tabbar-item icon="home-o" to="/">首页</van-tabbar-item>-->
+    <!--      <van-tabbar-item icon="user-o" to="/user">我的</van-tabbar-item>-->
+    <!--    </van-tabbar>-->
   </div>
 </template>
 
@@ -33,6 +33,7 @@ export default {
 
 <style scoped lang="less">
 .bottom_bar {
+  background-color: white;
   display: flex;
   position: fixed;
   bottom: 0;
@@ -49,7 +50,7 @@ export default {
     width: 50%;
     border-top: #ebedf0 1px solid;
 
-    &:first-child{
+    &:first-child {
       color: #1d7bff;
     }
   }
